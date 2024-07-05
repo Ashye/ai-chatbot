@@ -1,15 +1,14 @@
 'use client'
 
-import { cn } from '@/lib/utils'
 import { ChatList } from '@/components/chat-list'
 import { ChatPanel } from '@/components/chat-panel'
-import { EmptyScreen } from '@/components/empty-screen'
 import { useLocalStorage } from '@/lib/hooks/use-local-storage'
-import { useEffect, useState } from 'react'
-import { useUIState, useAIState } from 'ai/rsc'
-import { Message, Session } from '@/lib/types'
-import { usePathname, useRouter } from 'next/navigation'
 import { useScrollAnchor } from '@/lib/hooks/use-scroll-anchor'
+import { Message, Session } from '@/lib/types'
+import { cn } from '@/lib/utils'
+import { useAIState, useUIState } from 'ai/rsc'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 
 export interface ChatProps extends React.ComponentProps<'div'> {
@@ -68,7 +67,8 @@ export function Chat({ id, className, session, missingKeys }: ChatProps) {
         {messages.length ? (
           <ChatList messages={messages} isShared={false} session={session} />
         ) : (
-          <EmptyScreen />
+          // <EmptyScreen />
+          ""
         )}
         <div className="w-full h-px" ref={visibilityRef} />
       </div>
