@@ -36,6 +36,10 @@ const openai = createOpenAI({
   baseURL: process.env.OPENAI_BASE_URL,
   apiKey: process.env.OPENAI_API_KEY
 })
+const groq = createOpenAI({
+  baseURL: process.env.GROQ_BASE_URL,
+  apiKey: process.env.GROQ_API_KEY
+})
 
 async function confirmPurchase(symbol: string, price: number, amount: number) {
   'use server'
@@ -130,7 +134,8 @@ async function submitUserMessage(content: string) {
   const result = await streamUI({
     // model: openai('gpt-3.5-turbo'),
     // model: openai('google/gemma-2-9b-it:free'), 还不支持
-    model: openai('meta-llama/llama-3-8b-instruct:free'),
+    // model: openai('meta-llama/llama-3-8b-instruct:free'),
+    model: groq('llama3-70b-8192'),
     initial: <SpinnerMessage />,
     system: `\
     You are a helpful assistant.
