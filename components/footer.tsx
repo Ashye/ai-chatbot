@@ -11,7 +11,7 @@ export function FooterText({ className, ...props }: React.ComponentProps<'p'>) {
       )}
       {...props}
     >
-      Ai can response false info.
+      Ai can respond false info.
     </div>
     // <p
     //   className={cn(

@@ -134,8 +134,8 @@ async function submitUserMessage(content: string) {
   const result = await streamUI({
     // model: openai('gpt-3.5-turbo'),
     // model: openai('google/gemma-2-9b-it:free'), 还不支持
-    // model: openai('meta-llama/llama-3-8b-instruct:free'),
-    model: groq('llama3-70b-8192'),
+    model: openai('meta-llama/llama-3-8b-instruct:free'),
+    // model: groq('llama3-70b-8192'),
     initial: <SpinnerMessage />,
     system: `\
     You are a helpful assistant.
